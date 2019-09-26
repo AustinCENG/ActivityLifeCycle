@@ -6,7 +6,8 @@ In this code, the local variable mCounter is increased by 1 every time when a ca
 (OnStart, OnResume, etc.)is called. So when the cellphone rotates, it should keep on increasing.
 
 If onSaveInstanceState and onRestoreInstanceState are not commented out, the local variable mCounter
-will be reset every time when the cellphone rotates.
+will be reset every time when the cellphone rotates. When the cellphone roates, the activity will be destroyed and
+recreated when it goes back to foreground.
 
 Please try these:
 1. Without the onSaveInstanceState and onRestoreInstanceState methods, see what value of mCounter
