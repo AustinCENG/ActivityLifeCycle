@@ -13,6 +13,7 @@ import java.sql.Timestamp;
 
 public class MainActivity extends AppCompatActivity {
     private static final String LOCAL_VALUE = "KEY_LOCAL";
+    private static final String OLD_TEXT = "KEY_TEXT";
     private TextView textview;
     private int mCounter = 0;
     @Override
@@ -33,13 +34,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        recordMethod("onStop Called -- Entering onStop State");
+        // recordMethod("onStop Called -- Entering onStop State");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        recordMethod("onDestroy Called -- Entering onDestroy State");
+        // recordMethod("onDestroy Called -- Entering onDestroy State");
     }
 
     @Override
@@ -74,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
             recordMethod("First Time onCreate Called");
         } else if (savedInstanceState.get(LOCAL_VALUE) != null) {
             mCounter = savedInstanceState.getInt(LOCAL_VALUE);
+            textview.setText(savedInstanceState.getString(OLD_TEXT));
         }
         recordMethod("onRestoreInstanceState Called ");
         super.onRestoreInstanceState(savedInstanceState);
@@ -83,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onSaveInstanceState(Bundle outState) {
         // outState.putInt(LOCAL_VALUE, mCounter);
         outState.putInt(LOCAL_VALUE, mCounter);  // save mCounter into Bundle outStates
+        outState.putString(OLD_TEXT, textview.getText().toString());
         recordMethod("onSaveInstanceState Called");
         super.onSaveInstanceState(outState);
     }
@@ -132,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Set view1 to indicate the local variable status.
         TextView view1 = findViewById(R.id.localValueText);
-        view1.setText("The Local Private Value mCounter is: " + mCounter);
+        view1.setText("The Local Value mCounter is: " + mCounter);
     }
 
 }
