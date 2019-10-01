@@ -33,14 +33,14 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onStop() {
+        recordMethod("onStop Called -- Entering onStop State");
         super.onStop();
-        // recordMethod("onStop Called -- Entering onStop State");
     }
 
     @Override
     protected void onDestroy() {
+        recordMethod("onDestroy Called -- Entering onDestroy State");
         super.onDestroy();
-        // recordMethod("onDestroy Called -- Entering onDestroy State");
     }
 
     @Override
