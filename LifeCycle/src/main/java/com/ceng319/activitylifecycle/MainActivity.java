@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         textview = findViewById(R.id.textview);
-        textview.setText("");
         recordMethod("onCreate Called");
         }
 
